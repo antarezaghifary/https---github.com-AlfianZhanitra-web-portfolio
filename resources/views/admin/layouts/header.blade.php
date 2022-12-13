@@ -2,8 +2,8 @@
 
     <div class="d-flex align-items-center justify-content-between">
         <a href="{{ url('') }}" class="logo d-flex align-items-center">
-            <img src="{{ url('assets/admin/img/') }}" alt="">
-            <span class="d-none d-lg-block">simpelat</span>
+            <img src="{{ url('assets/admin/img/logo.png') }}" alt="">
+            <span class="d-none d-lg-block fs-6">{{ profile()->nama_perusahaan }}</span>
         </a>
         <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -12,8 +12,7 @@
         <ul class="d-flex align-items-center">
             <li class="nav-item dropdown pe-3">
 
-                <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#"
-                    data-bs-toggle="dropdown">
+                <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
                     <img src="{{ url('assets/admin/images/users/') }}" alt="Profile" class="rounded-circle">
                     <span class="d-none d-md-block dropdown-toggle ps-2">Test</span>
                 </a><!-- End Profile Iamge Icon -->

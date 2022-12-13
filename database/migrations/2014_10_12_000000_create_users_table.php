@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('email', 255);
             $table->text('address');
             $table->char('photo');
-            $table->string('level',100);
+            $table->enum('role', ['owner', 'admin', 'pelanggan'])->default('pelanggan');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
