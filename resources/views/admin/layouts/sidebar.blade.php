@@ -3,63 +3,63 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link {{ $pagetitle == 'Dashboard' ? '' : 'collapsed' }}" href="{{ url('dashboard') }}">
+            <a class="nav-link {{ $uri == 'dashboard' ? ' ' : 'collapsed' }}" href="{{ url('dashboard') }}">
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
             </a>
-        </li><!-- End Dashboard Nav -->
+        </li>
 
         <li class="nav-item">
-            <a class="nav-link {{ $pagetitle == 'Data Pengumuman' ? '' : 'collapsed' }}" href="{{ url('data-pengumuman') }}">
+            <a class="nav-link {{ $uri == 'data-booking' ? ' ' : 'collapsed' }}" href="{{ url('data-booking') }}">
                 <i class="bi bi-bookmark-star"></i>
                 <span>Booking dan Sewa</span>
             </a>
-        </li><!-- End F.A.Q Page Nav -->
+        </li>
 
         <li class="nav-item">
-            <a class="nav-link {{ $pagetitle == 'Data Modul Pembelajaran' ? '' : 'collapsed' }}" href="{{ url('data-modul') }}">
+            <a class="nav-link {{ $uri == 'data-alat-berat' ? ' ' : 'collapsed' }}" href="{{ url('data-alat-berat') }}">
                 <i class="bi bi-card-checklist"></i>
                 <span>Data Alat Berat</span>
             </a>
-        </li><!-- End Contact Page Nav -->
+        </li>
 
         <li class="nav-item">
-            <a class="nav-link {{ $pagetitle == 'Data Hasil Ujian' ? '' : 'collapsed' }}" href="{{ url('data-hasil-ujian') }}">
+            <a class="nav-link {{ $uri == 'data-operator' ? ' ' : 'collapsed' }}" href="{{ url('data-operator') }}">
                 <i class="bi bi-person-badge"></i>
                 <span>Data Operator</span>
             </a>
-        </li><!-- End Register Page Nav -->
+        </li>
 
         <li class="nav-item">
-            <a class="nav-link {{ $pagetitle == 'Struktur Organisasi' ? '' : 'collapsed' }}" href="{{ url('data-struktur-organisasi') }}">
+            <a class="nav-link {{ $uri == 'data-laporan' ? ' ' : 'collapsed' }}" href="{{ url('data-laporan') }}">
                 <i class="bi bi-list-check"></i>
                 <span>Laporan</span>
             </a>
-        </li><!-- End Error 404 Page Nav -->
+        </li>
         <li class="nav-item">
-            <a class="nav-link {{ $pagetitle == 'Profil Sekolah' ? '' : 'collapsed' }}" href="{{ url('data-profil-sekolah') }}">
+            <a class="nav-link {{ $uri == 'data-profil-perusahaan' ? ' ' : 'collapsed' }}" href="{{ url('data-profil-perusahaan') }}">
                 <i class="bi bi-building"></i>
                 <span>Profil Perusahaan</span>
             </a>
-        </li><!-- End Login Page Nav -->
+        </li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#pengguna-nav" data-bs-toggle="collapse" href="#">
+            <a class="nav-link {{ $uri == 'user' ? ' ' : 'collapsed' }}" data-bs-target="#pengguna-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-people"></i><span>Pengguna</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="pengguna-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="{{ url('data-siswa') }}">
+                    <a href="{{ url('user/data-pelanggan') }}">
                         <i class="bi bi-circle"></i><span>Pelanggan</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('data-admin') }}">
+                    <a href="{{ url('user/data-admin') }}">
                         <i class="bi bi-circle"></i><span>Admin</span>
                     </a>
                 </li>
             </ul>
-        </li><!-- End Components Nav -->
+        </li>
     </ul>
 
 </aside><!-- End Sidebar-->

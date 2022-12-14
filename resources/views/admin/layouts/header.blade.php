@@ -13,14 +13,19 @@
             <li class="nav-item dropdown pe-3">
 
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src="{{ url('assets/admin/images/users/') }}" alt="Profile" class="rounded-circle">
-                    <span class="d-none d-md-block dropdown-toggle ps-2">Test</span>
+                    <img src="{{ url('assets/admin/images/users/' . login()->photo) }}" alt="Profile"
+                        class="rounded-circle">
+                    <span class="d-none d-md-block dropdown-toggle ps-2">{{ login()->name }}</span>
                 </a><!-- End Profile Iamge Icon -->
 
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                    <div class="d-flex justify-content-center">
+                        <img src="{{ url('assets/admin/images/users/' . login()->photo) }}" alt="Profile"
+                        class="rounded-circle" style="height: 100px; width: auto">
+                    </div>
                     <li class="dropdown-header">
-                        <h6>Test</h6>
-                        <span>Test</span>
+                        <h6>{{ login()->name }}</h6>
+                        <span>{{ login()->role }}</span>
                     </li>
                     <li>
                         <hr class="dropdown-divider">

@@ -12,20 +12,20 @@
             </nav>
         </div><!-- End Page Title -->
 
-        <section class="section dashboard">
-            <div class="card recent-sales overflow-auto">
+        <section class="section">
+            <div class="card recent-sales overflow-auto pt-2">
                 <div class="card-body">
                     <div class="pt-3">
-                        <form action="{{ url('update-profile-sekolah/' . $profil->id) }}" method="post"
+                        <form action="{{ url('update-profile-perusahaan/' . $profil->id) }}" method="post"
                             enctype="multipart/form-data">
                             @method('put')
                             @csrf
                             <div class="row mb-3">
-                                <label for="inputText" class="col-sm-2 col-form-label">Nama</label>
+                                <label for="inputText" class="col-sm-2 col-form-label">Nama Perusahaan</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control @error('nama') is-invalid @enderror"
-                                        name="nama" value="{{ $profil->nama }}">
-                                    @error('nama')
+                                    <input type="text" class="form-control @error('nama_perusahaan') is-invalid @enderror"
+                                        name="nama_perusahaan" value="{{ $profil->nama_perusahaan }}">
+                                    @error('nama_perusahaan')
                                         <div class="text-danger">
                                             {{ $message }}
                                         </div>
@@ -46,33 +46,10 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="inputText" class="col-sm-2 col-form-label">Sejarah</label>
+                                <label for="inputText" class="col-sm-2 col-form-label">Tentang</label>
                                 <div class="col-sm-10">
-                                    <textarea class="form-control @error('sejarah') is-invalid @enderror" name="sejarah" style="height: 100px">{{ $profil->sejarah }} </textarea>
-                                    @error('sejarah')
-                                        <div class="text-danger">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="inputText" class="col-sm-2 col-form-label">Visi</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control @error('visi') is-invalid @enderror"
-                                        name="visi" value="{{ $profil->visi }}">
-                                    @error('visi')
-                                        <div class="text-danger">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="inputText" class="col-sm-2 col-form-label">Misi</label>
-                                <div class="col-sm-10">
-                                    <textarea class="form-control @error('misi') is-invalid @enderror" name="misi" style="height: 100px">{{ $profil->misi }} </textarea>
-                                    @error('misi')
+                                    <textarea class="form-control @error('tentang') is-invalid @enderror" name="tentang" style="height: 200px">{{ $profil->tentang }} </textarea>
+                                    @error('tentang')
                                         <div class="text-danger">
                                             {{ $message }}
                                         </div>
@@ -82,9 +59,21 @@
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">No Telepon</label>
                                 <div class="col-sm-10">
-                                    <input type="tel" class="form-control @error('no_telp') is-invalid @enderror"
-                                        name="no_telp" value="{{ $profil->no_telp }}">
-                                    @error('no_telp')
+                                    <input type="tel" class="form-control @error('telepon') is-invalid @enderror"
+                                        name="telepon" value="{{ $profil->telepon }}">
+                                    @error('telepon')
+                                        <div class="text-danger">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label">Whatsapp</label>
+                                <div class="col-sm-10">
+                                    <input type="number" min="0" class="form-control @error('whatsapp') is-invalid @enderror"
+                                        name="whatsapp" value="{{ $profil->whatsapp }}">
+                                    @error('whatsapp')
                                         <div class="text-danger">
                                             {{ $message }}
                                         </div>
@@ -127,21 +116,10 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="row mb-3">
-                                <label for="inputText" class="col-sm-2 col-form-label">Youtube</label>
-                                <div class="col-sm-10">
-                                    <input type="url" class="form-control @error('youtube') is-invalid @enderror"
-                                        name="youtube" value="{{ $profil->youtube }}">
-                                    @error('youtube')
-                                        <div class="text-danger">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-                            </div>
+                            
                             <div class="row mb-3">
                                 <div class=" d-flex justify-content-center">
-                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                    <button type="submit" class="btn btn-primary"><i class="bi bi-arrow-clockwise"></i> Perbarui</button>
                                 </div>
                             </div>
                         </form>

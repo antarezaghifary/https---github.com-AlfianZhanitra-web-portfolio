@@ -12,11 +12,11 @@
                             <div class="col-xxl-3">
                                 <div class="card">
                                     <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-                                        <img src="{{ url('assets/admin/images/users/' . user()['photo']) }}"
+                                        <img src="{{ url('assets/admin/images/users/' . login()->photo ) }}"
                                             class="rounded-circle avatar-xl img-thumbnail user-profile-image"
                                             alt="user-profile-image">
-                                        <h2>{{ user()['name'] }}</h2>
-                                        <h3>{{ user()['level'] }}</h3>
+                                        <h2>{{ login()->name }}</h2>
+                                        <h3>{{ login()->role }}</h3>
                                     </div>
                                 </div>
                                 <!--end card-->
@@ -45,7 +45,7 @@
                                     <div class="card-body p-4">
                                         <div class="tab-content">
                                             <div class="tab-pane active" id="personalDetails" role="tabpanel">
-                                                <form action="{{ url('update-profile/' . user()['id']) }}" method="POST"
+                                                <form action="{{ url('update-profile/' . login()->id) }}" method="POST"
                                                     enctype="multipart/form-data">
                                                     @method('put')
                                                     @csrf
@@ -59,7 +59,7 @@
                                                                     class="form-control @error('name') is-invalid @enderror"
                                                                     name="name" id="firstnameInput"
                                                                     placeholder="Masukan Nama Lengkap"
-                                                                    value="{{ user()['name'] }}">
+                                                                    value="{{ login()->name }}">
                                                                 @error('name')
                                                                     <div class="invalid-feedback">
                                                                         {{ $message }}
@@ -77,7 +77,7 @@
                                                                     class="form-control  @error('username') is-invalid @enderror"
                                                                     name="username" id="lastnameInput"
                                                                     placeholder="Enter your lastname"
-                                                                    value="{{ user()['username'] }}">
+                                                                    value="{{ login()->username }}">
                                                                 @error('username')
                                                                     <small class="text-danger">{{ $message }}</small>
                                                                 @enderror
@@ -92,7 +92,7 @@
                                                                     class="form-control  @error('email') is-invalid @enderror"
                                                                     name="email" id="emailInput"
                                                                     placeholder="Enter your email"
-                                                                    value="{{ user()['email'] }}">
+                                                                    value="{{ login()->email }}">
                                                                 @error('email')
                                                                     <small class="text-danger">{{ $message }}</small>
                                                                 @enderror
@@ -122,7 +122,7 @@
                                             </div>
                                             <!--end tab-pane-->
                                             <div class="tab-pane" id="changePassword" role="tabpanel">
-                                                <form action="{{ url('update-password/' . user()['id']) }}"
+                                                <form action="{{ url('update-password/' . login()->id) }}"
                                                     method="POST">
                                                     @method('put')
                                                     @csrf

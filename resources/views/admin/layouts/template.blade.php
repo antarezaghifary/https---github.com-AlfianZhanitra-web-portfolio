@@ -9,7 +9,7 @@
 <body>
 
     <!-- ======= Header ======= -->
-    {{-- <x:notify-messages /> --}}
+    <x:notify-messages />
 
     @include('admin.layouts.header')
 
@@ -24,7 +24,7 @@
             class="bi bi-arrow-up-short"></i></a>
 
     @include('admin.layouts.js')
-    {{-- @notifyJs --}}
+    @notifyJs
     @yield('scripts')
 
 </body>
