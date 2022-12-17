@@ -10,9 +10,9 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link {{ $uri == 'data-booking' ? ' ' : 'collapsed' }}" href="{{ url('data-booking') }}">
+            <a class="nav-link {{ $uri == 'data-transaksi' ? ' ' : 'collapsed' }}" href="{{ url('data-transaksi') }}">
                 <i class="bi bi-bookmark-star"></i>
-                <span>Booking dan Sewa</span>
+                <span>Transaksi</span>
             </a>
         </li>
 
@@ -22,18 +22,22 @@
                 <span>Data Alat Berat</span>
             </a>
         </li>
-
         <li class="nav-item">
-            <a class="nav-link {{ $uri == 'data-operator' ? ' ' : 'collapsed' }}" href="{{ url('data-operator') }}">
-                <i class="bi bi-person-badge"></i>
-                <span>Data Operator</span>
+            <a class="nav-link {{ $uri == 'data-type' ? ' ' : 'collapsed' }}" href="{{ url('data-type') }}">
+                <i class="bi bi-hash"></i>
+                <span>Data Type</span>
             </a>
         </li>
-
         <li class="nav-item">
             <a class="nav-link {{ $uri == 'data-laporan' ? ' ' : 'collapsed' }}" href="{{ url('data-laporan') }}">
                 <i class="bi bi-list-check"></i>
                 <span>Laporan</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {{ $uri == 'data-rekening' ? ' ' : 'collapsed' }}" href="{{ url('data-rekening') }}">
+                <i class="bi bi-credit-card"></i>
+                <span>Rekening</span>
             </a>
         </li>
         <li class="nav-item">

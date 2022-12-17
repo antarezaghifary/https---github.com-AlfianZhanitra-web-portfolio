@@ -1,22 +1,43 @@
-<div class="owl-carousel owl-theme hero-slider">
-    <div class="slide slide1">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center text-white">
-                    <h4 class="text-white text-uppercase">Selamat datang di</h4>
-                    <h3 class="display-3 my-4">SMP NEGERI 4 CIKEMBAR<br />SUKABUMI</h3>
+  <!-- Carousel Start -->
+  <div class="container-fluid px-0 mb-5">
+    <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="w-100" src="assets/homepage/img/carousel-1.jpg" alt="Image">
+                <div class="carousel-caption">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-10 text-start">
+                                <p class="fs-5 fw-medium text-primary text-uppercase animated slideInRight">{{ profile()->nama_perusahaan }} </p>
+                                <h2 class="display-1 text-white mb-5 animated slideInRight">Selamat Datang di <br> {{ profile()->nama_perusahaan }}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="w-100" src="assets/homepage/img/carousel-2.jpg" alt="Image">
+                <div class="carousel-caption">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-10 text-start">
+                                <p class="fs-5 fw-medium text-primary text-uppercase animated slideInRight">{{ profile()->nama_perusahaan }}</p>
+                                <h2 class="display-1 text-white mb-5 animated slideInRight">Terbaik Terpercaya
+                                    Solusi Konstruksi Anda</h2>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="slide slide2">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-lg-10 offset-lg-1 text-white">
-                    <h4 class="text-white text-uppercase">Website Resmi SMP NEGERI 4 CIKEMBAR</h4>
-                    <h1 class="display-3 my-4">Informatif dan <br />Edukatif</h1>
-                </div>
-            </div>
-        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
 </div>
+<!-- Carousel End -->

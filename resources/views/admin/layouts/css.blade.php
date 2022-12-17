@@ -1,6 +1,6 @@
   <!-- Favicons -->
-  <link href="{{ url('assets/admin/img/a') }}" rel="icon">
-  <link href="{{ url('assets/admin/img/a') }}" rel="apple-touch-icon">
+  <link href="{{ url('assets/admin/img/logo.png') }}" rel="icon">
+  <link href="{{ url('assets/admin/img/logo.png') }}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">

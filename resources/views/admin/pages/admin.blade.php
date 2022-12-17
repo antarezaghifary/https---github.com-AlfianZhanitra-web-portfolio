@@ -32,6 +32,7 @@
                                                     <th scope="col">Nama</th>
                                                     <th scope="col">Username</th>
                                                     <th scope="col">Email</th>
+                                                    <th scope="col">Role</th>
                                                     <th scope="col">Dibuat</th>
                                                     <th scope="col">Diperbarui</th>
                                                     <th scope="col"></th>
@@ -44,6 +45,7 @@
                                                         <td>{{ $item->name }}</td>
                                                         <td>{{ $item->username }}</td>
                                                         <td>{{ $item->email }}</td>
+                                                        <td>{{ $item->role }}</td>
                                                         <td>{{ $item->created_at }}</td>
                                                         <td>{{ $item->updated_at }}</td>
                                                         <td>
@@ -121,6 +123,21 @@
                                                         class="form-control @error('email') is-invalid @enderror"
                                                         name="email" id="email" placeholder="email">
                                                     @error('email')
+                                                        <div class="text-danger">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="row pt-2">
+                                                <label for="role" class="col-sm-2 col-form-label">Role</label>
+                                                <div class="col-sm-10">
+                                                    <select name="role" id="" class="form-select @error('role') is-invalid @enderror">
+                                                        <option value="">--Pilih--</option>
+                                                        <option value="owner">Owner</option>
+                                                        <option value="admin">Admin</option>
+                                                    </select>
+                                                    @error('role')
                                                         <div class="text-danger">
                                                             {{ $message }}
                                                         </div>
@@ -211,7 +228,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ url('update-data-user/' . $item->id) }}" method="post">
+                                        <form action="{{ url('update-data-user/' . $item->id) }}" method="post" enctype="multipart/form-data">
                                             @method('put')
                                             @csrf
                                             <div class="modal-body">
@@ -259,6 +276,21 @@
                                                     </div>
                                                 </div>
                                                 <div class="row pt-2">
+                                                    <label for="role" class="col-sm-2 col-form-label">Role</label>
+                                                    <div class="col-sm-10">
+                                                        <select name="role" id="" class="form-select @error('role') is-invalid @enderror">
+                                                            <option value="">--Pilih--</option>
+                                                            <option {{ $item->role == 'owner' ? 'selected' : '' }} value="owner">Owner</option>
+                                                            <option {{ $item->role == 'admin' ? 'selected' : '' }} value="admin">Admin</option>
+                                                        </select>
+                                                        @error('role')
+                                                            <div class="text-danger">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                                <div class="row pt-2">
                                                     <label for="photo" class="col-sm-2 col-form-label">photo</label>
                                                     <div class="col-sm-10">
                                                         <input type="file"
@@ -297,10 +329,10 @@
                                                         <div class="d-flex align-items-center flex-column">
                                                             <img src="{{ url('assets/admin/images/users/' . $item->photo) }}"
                                                                 alt="" class="img-fluid"
-                                                                style="height: 230px; width: auto; border-radius: 10px">
+                                                                style="height: 200px; width: auto; border-radius: 10px">
                                                             <div class="mt-2 text-center">
                                                                 <p class="fw-bold">{{ $item->name }}</p>
-                                                                <p>{{ $item->level }}</p>
+                                                                <p>{{ $item->role }}</p>
                                                             </div>
                                                         </div>
                                                     </div>

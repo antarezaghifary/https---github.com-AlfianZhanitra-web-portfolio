@@ -23,6 +23,14 @@ class AuthController extends Controller
         return view('auth/login', $results);
     }
 
+    public function register()
+    {
+        $results = [
+            'pagetitle' => 'Masuk | CV. MBH'
+        ];
+        return view('auth/register', $results);
+    }
+
     public function proses_login(Request $request)
     {
         request()->validate(
