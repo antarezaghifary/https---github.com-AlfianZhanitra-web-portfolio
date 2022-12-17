@@ -2,7 +2,7 @@
 @section('css')
 @endsection
 @section('main')
-@include('home.layouts.slider')
+    @include('home.layouts.slider')
 
     <!-- Facts Start -->
     <div class="container-fluid facts my-5 p-5">
@@ -33,7 +33,6 @@
     <!-- Facts End -->
 
     @include('home.layouts.alat-berat')
-    
 @endsection
 @section('script')
 @endsection

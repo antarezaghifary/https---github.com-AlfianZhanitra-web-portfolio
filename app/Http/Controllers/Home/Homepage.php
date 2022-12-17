@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class Homepage extends Controller
 {
-    public function index(){
+    public function index()
+    {
 
         $profile = DB::table('settings')->get()->first();
         $alat_berat = DB::table('alat_berat')->get();
@@ -22,7 +22,8 @@ class Homepage extends Controller
         return view('home\pages\homepage', $results);
     }
 
-    public function detail($id){
+    public function detail($id)
+    {
 
         $alat_berat = DB::table('alat_berat')->where('id', $id)->get()->first();
         $profile = DB::table('settings')->get()->first();
@@ -35,7 +36,8 @@ class Homepage extends Controller
         return view('home\pages\detail', $results);
     }
 
-    public function tentang(){
+    public function tentang()
+    {
 
         $profile = DB::table('settings')->get()->first();
         $results = [
@@ -46,7 +48,8 @@ class Homepage extends Controller
         return view('home\pages\about', $results);
     }
 
-    public function alat_berat(){
+    public function alat_berat()
+    {
 
         $profile = DB::table('settings')->get()->first();
         $alat_berat = DB::table('alat_berat')->get();
@@ -59,4 +62,18 @@ class Homepage extends Controller
 
         return view('home\pages\alat-berat', $results);
     }
+
+    public function profile()
+    {
+
+        $profile = DB::table('settings')->get()->first();
+
+        $results = [
+            'pagetitle' => 'Profile',
+            'profile' => $profile,
+        ];
+
+        return view('home\pages\profile', $results);
+    }
+
 }

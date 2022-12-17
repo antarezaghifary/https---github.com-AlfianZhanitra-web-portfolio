@@ -16,13 +16,20 @@
                    class="nav-item nav-link {{ $pagetitle == 'Tentang Kami' ? 'active' : '' }}">Tentang Kami</a>
                <a href="{{ url('alat-berat') }}"
                    class="nav-item nav-link {{ $pagetitle == 'Alat Berat dan Truck' ? 'active' : '' }}">Alat Berat</a>
-           @if (login())
-               <a href="{{ url('profil-pengguna') }}" class="nav-item nav-link" >{{ login()->name }}</a>
-               <a href="{{ url('logout') }}" class="nav-item nav-link" >Keluar</a>
-           @else
-               <a href="{{ url('login') }}" class="nav-item nav-link">Login</a>
-           @endif
+               @if (login())
+                   <div class="nav-item dropdown">
+                       <a href="#" class="nav-link dropdown-toggle"
+                           data-bs-toggle="dropdown">{{ login()->name }}</a>
+                       <div class="dropdown-menu bg-light m-0">
+                           <a href="{{ url('profil-pengguna') }}" class="dropdown-item">Profile</a>
+                           <a href="{{ url('transaksi') }}" class="dropdown-item">Transaksi</a>
+                           <a href="{{ url('logout') }}" class="dropdown-item text-danger">Keluar</a>
+                       </div>
+                   </div>
+               @else
+                   <a href="{{ url('login') }}" class="nav-item nav-link">Login</a>
+               @endif
+           </div>
        </div>
-    </div>
    </nav>
    <!-- Navbar End -->

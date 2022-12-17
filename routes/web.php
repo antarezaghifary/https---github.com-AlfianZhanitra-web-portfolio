@@ -18,6 +18,12 @@ Route::get('/tentang', 'App\Http\Controllers\Home\Homepage@tentang')->name('tent
 Route::get('/alat-berat', 'App\Http\Controllers\Home\Homepage@alat_berat')->name('alat_berat');
 Route::get('/profil-pengguna', 'App\Http\Controllers\Home\Homepage@profile')->name('profile');
 Route::get('/detail-alat-berat/{post}', 'App\Http\Controllers\Home\Homepage@detail')->name('detail');
+Route::get('/transaksi', 'App\Http\Controllers\Home\Transaksi@index')->name('Transaksi')->middleware('cek_login:pelanggan');
+Route::get('/invoice/{post}', 'App\Http\Controllers\Home\Transaksi@invoice')->name('invoice')->middleware('cek_login:pelanggan');
+Route::post('/confirm', 'App\Http\Controllers\Home\Transaksi@create')->middleware('cek_login:pelanggan');
+Route::put('/payment/{post}', 'App\Http\Controllers\Home\Transaksi@update')->middleware('cek_login:pelanggan');
+Route::get('/canceled/{post}', 'App\Http\Controllers\Home\Transaksi@delete')->middleware('cek_login:pelanggan');
+
 
 Route::get('/login', 'App\Http\Controllers\AuthController@index')->name('login');
 Route::get('/register', 'App\Http\Controllers\AuthController@register')->name('register');
@@ -27,7 +33,7 @@ Route::get('/logout', 'App\Http\Controllers\AuthController@logout')->name('logou
 Route::get('/dashboard', 'App\Http\Controllers\Admin\Dashboard@index')->name('dashboard')->middleware('cek_login:admin,owner');
 Route::get('/profile', 'App\Http\Controllers\Admin\Dashboard@profile')->name('profile')->middleware('cek_login:admin,owner');
 Route::put('/update-profile/{post}', 'App\Http\Controllers\Admin\Dashboard@profile_update')->middleware('cek_login:admin,owner');
-Route::put('/update-password/{post}', 'App\Http\Controllers\Admin\Dashboard@password_update')->middleware('cek_login:admin,owner');
+Route::put('/update-password/{post}', 'App\Http\Controllers\Admin\Dashboard@password_update')->middleware('cek_login:admin,owner,pelanggan');
 
 Route::get('/data-profil-perusahaan', 'App\Http\Controllers\Admin\ProfilPerusahaan@index')->name('profil-perusahaan')->middleware('cek_login:admin,owner');
 Route::put('/update-profile-perusahaan/{post}', 'App\Http\Controllers\Admin\ProfilPerusahaan@update')->name('update')->middleware('cek_login:admin,owner');
@@ -40,7 +46,7 @@ Route::delete('/delete-data-user/{post}', 'App\Http\Controllers\Admin\Users@dele
 
 Route::get('/user/data-pelanggan', 'App\Http\Controllers\Admin\Pelanggan@index')->name('admin')->middleware('cek_login:admin,owner');
 Route::post('/create-data-pelanggan', 'App\Http\Controllers\Admin\Pelanggan@create')->name('create');
-Route::put('/update-data-pelanggan/{post}', 'App\Http\Controllers\Admin\Pelanggan@update')->name('update')->middleware('cek_login:admin,owner');
+Route::put('/update-data-pelanggan/{post}', 'App\Http\Controllers\Admin\Pelanggan@update')->name('update');
 Route::put('/reset-data-pelanggan/{post}', 'App\Http\Controllers\Admin\Pelanggan@reset')->name('update')->middleware('cek_login:admin,owner');
 Route::delete('/delete-data-pelanggan/{post}', 'App\Http\Controllers\Admin\Pelanggan@delete')->name('delete')->middleware('cek_login:admin,owner');
 

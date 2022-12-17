@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="team-social">
                                     @if ($item->status == 'Tersedia')
-                                        <a class="btn btn-dark mx-1" href="{{ url('detail-alat-berat/'. $item->id) }}"><i class="bi bi-cash"></i> Sewa</a>
+                                        <a class="btn btn-dark mx-1" href="{{ url('detail-alat-berat/'. $item->id) }}"><i class="bi bi-file-earmark-plus"></i> Pesan</a>
                                     @else
                                         <button class="btn btn-warning disabled mx-1" href="">Tidak
                                             Tersedia</button>

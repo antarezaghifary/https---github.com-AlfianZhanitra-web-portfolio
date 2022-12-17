@@ -38,7 +38,7 @@
                                             </div>
                                         </div>
                                         <div class="row pt-2">
-                                            <label for="name" class="col-sm-3 col-form-label">Username</label>
+                                            <label for="username" class="col-sm-3 col-form-label">Username</label>
                                             <div class="col-sm-9">
                                                 <div class="input-group has-validation">
                                                     <span class="input-group-text" id="inputGroupPrepend">@</span>
@@ -79,7 +79,7 @@
                                         <div class="row pt-2">
                                             <label for="phone" class="col-sm-3 col-form-label">Telepon</label>
                                             <div class="col-sm-9">
-                                            <input type="number" min="0" name="phone" class="form-control"
+                                            <input type="tel" min="0" name="phone" class="form-control"
                                                 placeholder="Masukan phone" id="phone" required>
                                                 @error('phone')
                                                     <div class="ivalid-feedback">
