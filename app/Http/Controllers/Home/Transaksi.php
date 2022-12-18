@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use App\Models\TransaksiModel;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -102,5 +103,23 @@ class Transaksi extends Controller
             notify()->warning('Harap Periksa Kembali', 'Gagal');
             return back();
         }
+    }
+
+    public function download_invoice($id)
+    {
+        $id_pelanggan = login()->id;
+        $invoice = DB::table('transaksi as a')
+            ->select('a.*', 'b.type', 'b.merk', 'b.harga', 'b.operator', 'b.bbm', 'b.durasi_sewa as per', 'c.name as nama_pelanggan', 'c.phone', 'c.email')
+            ->join('alat_berat as b', 'a.id_alat_berat', '=', 'b.id')
+            ->join('users as c', 'a.id_pelanggan', '=', 'c.id')
+            ->where('a.id', $id)
+            ->where('a.id_pelanggan', $id_pelanggan)
+            ->get()->first();
+        $data = [
+            'invoice' =>  $invoice
+        ];
+        $pdf = Pdf::loadView('home.pages.pdf.invoice', $data)->setPaper('a4', 'landscape');
+        $name = now()->timestamp . "CVMBH_INV-0" . $invoice->id . ".pdf";
+        return $pdf->download($name);
     }
 }

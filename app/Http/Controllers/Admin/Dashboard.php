@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Hash;
 class Dashboard extends Controller
 {
     public function index(Request $request)
-    {
+    {  
         $results = [
             'pagetitle' => 'Dashboard',
             'uri' =>  $request->segments('1')

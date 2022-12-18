@@ -23,6 +23,7 @@ Route::get('/invoice/{post}', 'App\Http\Controllers\Home\Transaksi@invoice')->na
 Route::post('/confirm', 'App\Http\Controllers\Home\Transaksi@create')->middleware('cek_login:pelanggan');
 Route::put('/payment/{post}', 'App\Http\Controllers\Home\Transaksi@update')->middleware('cek_login:pelanggan');
 Route::get('/canceled/{post}', 'App\Http\Controllers\Home\Transaksi@delete')->middleware('cek_login:pelanggan');
+Route::get('/download-invoice/{post}', 'App\Http\Controllers\Home\Transaksi@download_invoice')->middleware('cek_login:pelanggan,owner,admin');
 
 
 Route::get('/login', 'App\Http\Controllers\AuthController@index')->name('login');
@@ -64,3 +65,12 @@ Route::get('/data-rekening', 'App\Http\Controllers\Admin\Rekening@index')->name(
 Route::post('/create-data-rekening', 'App\Http\Controllers\Admin\Rekening@create')->name('create')->middleware('cek_login:admin,owner');
 Route::put('/update-data-rekening/{post}', 'App\Http\Controllers\Admin\Rekening@update')->name('update')->middleware('cek_login:admin,owner');
 Route::delete('/delete-data-rekening/{post}', 'App\Http\Controllers\Admin\Rekening@delete')->name('delete')->middleware('cek_login:admin,owner');
+
+Route::get('/data-transaksi', 'App\Http\Controllers\Admin\Transaksi@index')->name('admin')->middleware('cek_login:admin,owner');
+Route::get('/detail-transaksi/{post}', 'App\Http\Controllers\Admin\Transaksi@invoice')->name('admin')->middleware('cek_login:admin,owner');
+Route::put('/confirm-transaksi/{post}', 'App\Http\Controllers\Admin\Transaksi@update')->name('update')->middleware('cek_login:admin,owner');
+Route::delete('/delete-transaksi/{post}', 'App\Http\Controllers\Admin\Transaksi@delete')->name('delete')->middleware('cek_login:admin,owner');
+Route::get('/download-invoice-/{post}', 'App\Http\Controllers\Admin\Transaksi@download_invoice')->middleware('cek_login:owner,admin');
+
+Route::get('/data-laporan', 'App\Http\Controllers\Admin\Transaksi@laporan')->name('admin')->middleware('cek_login:admin,owner');
+Route::get('/download-laporan', 'App\Http\Controllers\Admin\Transaksi@cetak_laporan')->middleware('cek_login:owner,admin');

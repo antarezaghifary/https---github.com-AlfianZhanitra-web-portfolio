@@ -8,7 +8,7 @@
             <div class="col-lg-8">
                 <div class="card">
                     <div class="card-body">
-                            <h2 class="card-title fs-4">#INV-0{{ $invoice->id }}</h2>
+                        <h2 class="card-title fs-4">#INV-0{{ $invoice->id }}</h2>
                         <h6>{{ profile()->nama_perusahaan }}</h6>
 
                         <div class="pt-2">
@@ -76,7 +76,8 @@
                                     </tbody>
                                 </table>
                                 <div class="d-flex justify-content-end">
-                                    <a href="" class="btn btn-success"><i class="bi bi-download"></i> Unduh Incoice</a>
+                                    <a href="{{ url('download-invoice/' . $invoice->id) }}" class="btn btn-success"><i
+                                            class="bi bi-download"></i> Unduh Incoice</a>
                                 </div>
                             </div>
                             <i>Terimakasih atas kerjasamanya</i>
@@ -108,7 +109,7 @@
                                 @error('bukti_pembayaran')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
-                                <button type="submit" class="btn btn-primary">Unggah</button>
+                                <button type="submit" class="btn btn-primary"> Unggah</button>
                             </div>
                         </form>
                     </div>
@@ -118,7 +119,7 @@
                         <div class="card-body">
                             <div class="d-flex justify-content-center">
                                 <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal">
+                                    data-bs-target="#exampleModal"><i class="bi bi-file-earmark-text"></i>
                                     Lihat Bukti Pembayaran
                                 </button>
                             </div>

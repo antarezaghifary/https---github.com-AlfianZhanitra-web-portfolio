@@ -17,10 +17,10 @@
                 <!-- Left side columns -->
                 <div class="col-lg-12">
                     <div class="row">
-                        <div class="pb-3">
+                        {{-- <div class="pb-3">
                             <a href="javascrip:void(0)" data-bs-toggle="modal" data-bs-target="#create"
                                 class="btn btn-primary"><i class="bi bi-plus"></i> Tambah</a>
-                        </div>
+                        </div> --}}
                         <div class="col-md-12">
                             <div class="card recent-sales overflow-auto">
                                 <div class="card-body">
@@ -54,14 +54,14 @@
                                                                     data-bs-toggle="modal"
                                                                     data-bs-target="#view-{{ $item->id }}"><i
                                                                         class="bi bi-eye"></i> Lihat</a>
-                                                                <a href="javascript:void(0);" class="btn btn-warning btn-sm"
+                                                                {{-- <a href="javascript:void(0);" class="btn btn-warning btn-sm"
                                                                     data-bs-toggle="modal"
                                                                     data-bs-target="#edit-{{ $item->id }}"><i
-                                                                        class="bi bi-pencil"></i> Ubah</a>
-                                                                <a href="javascript:void(0);" class="btn btn-success btn-sm"
+                                                                        class="bi bi-pencil"></i> Ubah</a> --}}
+                                                                {{-- <a href="javascript:void(0);" class="btn btn-success btn-sm"
                                                                     data-bs-toggle="modal"
                                                                     data-bs-target="#reset-{{ $item->id }}"><i
-                                                                        class="bi bi-lock"></i> Reset</a>
+                                                                        class="bi bi-lock"></i> Reset</a> --}}
                                                                 <a href="javascript:void(0);" class="btn btn-danger btn-sm"
                                                                     data-bs-toggle="modal"
                                                                     data-bs-target="#delete-{{ $item->id }}"><i
