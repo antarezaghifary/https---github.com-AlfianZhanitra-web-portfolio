@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Invoice</title>
@@ -39,6 +39,16 @@
         .fw-bold {
             font-weight: bold
         }
+
+        footer {
+            position: fixed;
+            bottom: 20px;
+            left: 0px;
+            right: 0px;
+            height: 150px;
+            text-align: center;
+            vertical-align: top
+        }
     </style>
 </head>
 
@@ -52,23 +62,28 @@
                 <table>
                     <tr>
                         <td>Nama Pemesan</td>
-                        <td>: {{ $invoice->nama_pelanggan }}</td>
+                        <td class="text-center">:</td>
+                        <td>{{ $invoice->nama_pelanggan }}</td>
                     </tr>
                     <tr>
                         <td>Email</td>
-                        <td>: {{ $invoice->email }}</td>
+                        <td class="text-center">:</td>
+                        <td>{{ $invoice->email }}</td>
                     </tr>
                     <tr>
                         <td>No. Telepon</td>
-                        <td>: {{ $invoice->phone }}</td>
+                        <td class="text-center">:</td>
+                        <td>{{ $invoice->phone }}</td>
                     </tr>
                     <tr>
                         <td>Lokasi Proyek</td>
-                        <td>: {{ $invoice->lokasi_proyek }}</td>
+                        <td class="text-center">:</td>
+                        <td>{{ $invoice->lokasi_proyek }}</td>
                     </tr>
                     <tr>
                         <td>Tgl. Pemakaian</td>
-                        <td>: {{ $invoice->tgl_pemakaian }}</td>
+                        <td class="text-center">:</td>
+                        <td>{{ $invoice->tgl_pemakaian }}</td>
                     </tr>
                 </table>
             </div>
@@ -98,8 +113,8 @@
                                 <td class="td">{{ $invoice->merk }}</td>
                                 <td class="td">{{ number_format($invoice->harga) . '/' . $invoice->per }}</td>
                                 <td class="td">{{ $invoice->durasi_sewa }}</td>
-                                <td class="td">{!! $invoice->operator == 'Tersedia' ? '✔' : '✕' !!}</td>
-                                <td class="td">{!! $invoice->bbm == 'Tersedia' ? '✔' : '✕' !!}</td>
+                                <td class="td">{!! $invoice->operator == 'Tersedia' ? '<span class="text-success">✔</span>' : '<span class="text-danger">✕</span>' !!}</td>
+                                <td class="td">{!! $invoice->bbm == 'Tersedia' ? '<span class="text-success">✔</span>' : '<span class="text-danger">✕</span>' !!}</td>
                                 <td class="td">{{ number_format($invoice->harga * $invoice->durasi_sewa) }}</td>
                             </tr>
                             <tr>
@@ -110,6 +125,30 @@
                     </table>
                 </div>
                 <i>Terimakasih atas kerjasamanya</i>
+                <footer>
+                    <table style="width: 50%; vertical-align: top;">
+                        <tr>
+                            <td style="vertical-align: text-top">Telepon</td>
+                            <td style="vertical-align: text-top" class="text-center">:</td>
+                            <td style="vertical-align: text-top">{{ profile()->telepon }}</td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align: text-top">Whatsapp</td>
+                            <td style="vertical-align: text-top" class="text-center">:</td>
+                            <td style="vertical-align: text-top">{{ profile()->whatsapp }}</td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align: text-top">Email</td>
+                            <td style="vertical-align: text-top" class="text-center">:</td>
+                            <td style="vertical-align: text-top">{{ profile()->email }}</td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align: text-top">Alamat</td>
+                            <td style="vertical-align: text-top" class="text-center">:</td>
+                            <td style="vertical-align: text-top">{{ profile()->alamat }}</td>
+                        </tr>
+                    </table>
+                </footer>
             </div>
         </div>
     </div>

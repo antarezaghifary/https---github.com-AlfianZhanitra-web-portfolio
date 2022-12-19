@@ -99,6 +99,58 @@
 
                             </div>
                         </div>
+                        <div class="col-md-12">
+                            <div class="card recent-sales overflow-auto">
+                                <div class="card-body">
+                                    <h5 class="card-title">Transaksi <span>| Daftar Transaksi</span></h5>
+                                    <div class="pt-3">
+                                        <table class="table table-borderless datatable">
+                                            <thead>
+                                                <tr>
+                                                    <th>Tanggal Pesanan</th>
+                                                    <th>Type</th>
+                                                    <th>Merk</th>
+                                                    <th>Total</th>
+                                                    <th>Pembayaran</th>
+                                                    <th>Status</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($transaksi as $item)
+                                                    <tr>
+                                                        <td>{{ $item->created_at }}</td>
+                                                        <td>{{ $item->type }}</td>
+                                                        <td>{{ $item->merk }}</td>
+                                                        <td>Rp.{{ number_format($item->harga * $item->durasi_sewa) }}</td>
+                                                        <td>{!! $item->bukti_pembayaran == ''
+                                                            ? '<span class="badge bg-danger">Belum Lunas</span>'
+                                                            : ($item->status != ''
+                                                                ? '<span class="badge bg-success"> Lunas </span>'
+                                                                : '') !!}</td>
+                                                        <td>{!! $item->status == '0'
+                                                            ? '<span class="badge bg-danger"> Menunggu Konfirmasi</span>'
+                                                            : ($item->status == '1'
+                                                                ? '<span class="badge bg-success"> Pesanan Disetujui</span>'
+                                                                : '') !!}</td>
+                                                        <td>
+                                                            <a href="{{ url('detail-transaksi/' . $item->id) }}" class="btn btn-sm btn-success"><i
+                                                                    class="bi bi-card-list"> </i>
+                                                                Detail</a>
+                                                            @if ($item->status != '1')
+                                                                <a href="{{ url('delete-transaksi/' . $item->id) }}" class="btn btn-sm btn-danger"><i
+                                                                        class="bi bi-x"></i>
+                                                                    Batalkan</a>
+                                                            @endif
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div><!-- End Left side columns -->
             </div>

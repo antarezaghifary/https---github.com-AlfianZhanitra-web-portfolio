@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\AlatBeratModel;
 use App\Models\TransaksiModel;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
@@ -42,6 +43,8 @@ class Transaksi extends Controller
 
     public function update(Request $request, $id)
     {
+        $id_alat_berat = $request['id_alatberat'];
+
         $rules =  [
             'status' => 'required',
         ];
@@ -50,7 +53,13 @@ class Transaksi extends Controller
             $results = [
                 'status' => $request['status']
             ];
+
+            $status = [
+                'status' =>  $request['status_alat']
+            ];
+
             TransaksiModel::where('id', $id)->update($results);
+            AlatBeratModel::where('id', $id_alat_berat)->update($status);
             notify()->success('Status diperbarui', 'Berhasil');
             return back();
         } else {
