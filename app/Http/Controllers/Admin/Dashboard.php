@@ -6,15 +6,24 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class Dashboard extends Controller
 {
     public function index(Request $request)
     {  
+        $pelanggan = DB::table('users')->where('role', 'pelanggan')->get();
+        $alat_berat = DB::table('alat_berat')->get();
+        $transaksi = DB::table('transaksi as a')->get();
+
         $results = [
             'pagetitle' => 'Dashboard',
-            'uri' =>  $request->segments('1')
+            'uri' =>  $request->segments('1'),
+            'pelanggan' => $pelanggan,
+            'alat_berat' => $alat_berat,
+            'transaksi' => $transaksi,
+
         ];
         return view('admin/pages/dashboard', $results);
     }

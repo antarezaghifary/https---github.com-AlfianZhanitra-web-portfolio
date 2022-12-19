@@ -12,11 +12,14 @@ class Homepage extends Controller
 
         $profile = DB::table('settings')->get()->first();
         $alat_berat = DB::table('alat_berat')->get();
-
+        $pelanggan = DB::table('users')->where('role', 'pelanggan')->get();
+        $transaksi = DB::table('transaksi as a')->where('status', '1')->get();
         $results = [
             'pagetitle' => 'Homepage',
             'profile' => $profile,
             'alat_berat' => $alat_berat,
+            'pelanggan' => $pelanggan,
+            'transaksi' => $transaksi,
         ];
 
         return view('home\pages\homepage', $results);
