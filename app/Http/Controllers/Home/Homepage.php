@@ -22,7 +22,7 @@ class Homepage extends Controller
             'transaksi' => $transaksi,
         ];
 
-        return view('home\pages\homepage', $results);
+        return view('home.pages.homepage', $results);
     }
 
     public function detail($id)
@@ -36,7 +36,7 @@ class Homepage extends Controller
             'alat_berat' => $alat_berat,
         ];
 
-        return view('home\pages\detail', $results);
+        return view('home.pages.detail', $results);
     }
 
     public function tentang()
@@ -48,7 +48,7 @@ class Homepage extends Controller
             'profile' => $profile,
         ];
 
-        return view('home\pages\about', $results);
+        return view('home.pages.about', $results);
     }
 
     public function alat_berat()
@@ -63,7 +63,7 @@ class Homepage extends Controller
             'alat_berat' => $alat_berat,
         ];
 
-        return view('home\pages\alat-berat', $results);
+        return view('home.pages.alat-berat', $results);
     }
 
     public function profile()
@@ -76,7 +76,7 @@ class Homepage extends Controller
             'profile' => $profile,
         ];
 
-        return view('home\pages\profile', $results);
+        return view('home.pages.profile', $results);
     }
 
 }

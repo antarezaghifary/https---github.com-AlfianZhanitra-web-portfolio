@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
 use App\Http\Controllers\Controller;
 use App\Models\alat_berat;
 use App\Models\AlatBeratModel;
@@ -21,7 +20,7 @@ class AlatBerat extends Controller
             'alat_berat' => $alat_berat,
             'type' => $type,
         ];
-        return view('admin\pages\alat-berat', $results);
+        return view('admin.pages.alat-berat', $results);
     }
 
     public function create(Request $request)
