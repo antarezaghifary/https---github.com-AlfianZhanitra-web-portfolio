@@ -23,7 +23,7 @@ class Transaksi extends Controller
             'pagetitle' => 'Data Transaksi',
             'transaksi' => $transaksi,
         ];
-        return view('admin\pages\transaksi', $results);
+        return view('admin.pages.transaksi', $results);
     }
 
     public function invoice($id)
@@ -38,7 +38,7 @@ class Transaksi extends Controller
             'pagetitle' => 'Invoice',
             'invoice' => $invoice,
         ];
-        return view('admin\pages\invoice', $results);
+        return view('admin.pages.invoice', $results);
     }
 
     public function update(Request $request, $id)
@@ -125,7 +125,7 @@ class Transaksi extends Controller
             'transaksi' => $transaksi,
             'url' => $url,
         ];
-        return view('admin\pages\laporan', $results);
+        return view('admin.pages.laporan', $results);
     }
 
     public function cetak_laporan()

@@ -18,7 +18,7 @@ class Pelanggan extends Controller
             'uri' => 'admin',
             'user' => $user,
         ];
-        return view('admin\pages\pelanggan', $results);
+        return view('admin.pages.pelanggan', $results);
     }
 
     public function create(Request $request)

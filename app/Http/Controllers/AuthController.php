@@ -20,7 +20,7 @@ class AuthController extends Controller
         $results = [
             'pagetitle' => 'Masuk | CV. MBH'
         ];
-        return view('auth/login', $results);
+        return view('auth.login', $results);
     }
 
     public function register()
@@ -28,7 +28,7 @@ class AuthController extends Controller
         $results = [
             'pagetitle' => 'Masuk | CV. MBH'
         ];
-        return view('auth/register', $results);
+        return view('auth.register', $results);
     }
 
     public function proses_login(Request $request)

@@ -17,7 +17,7 @@ class Rekening extends Controller
             'uri' => 'rekening',
             'rekening' => $rekening,
         ];
-        return view('admin\pages\rekening', $results);
+        return view('admin.pages.rekening', $results);
     }
 
     public function create(Request $request)

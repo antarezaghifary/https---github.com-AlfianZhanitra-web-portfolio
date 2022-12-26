@@ -23,7 +23,7 @@ class Transaksi extends Controller
             'pagetitle' => 'Data Transaksi',
             'transaksi' => $transaksi,
         ];
-        return view('home\pages\transaksi', $results);
+        return view('home.pages.transaksi', $results);
     }
 
     public function invoice($id)
@@ -41,7 +41,7 @@ class Transaksi extends Controller
             'invoice' => $invoice,
             'rekening' => $rekening,
         ];
-        return view('home\pages\invoice', $results);
+        return view('home.pages.invoice', $results);
     }
 
     public function create(Request $request)

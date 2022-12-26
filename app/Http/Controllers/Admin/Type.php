@@ -17,7 +17,7 @@ class Type extends Controller
             'uri' => 'type alat-berat',
             'type' => $type,
         ];
-        return view('admin\pages\type', $results);
+        return view('admin.pages.type', $results);
     }
 
     public function create(Request $request)

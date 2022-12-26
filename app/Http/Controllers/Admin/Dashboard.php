@@ -29,7 +29,7 @@ class Dashboard extends Controller
             'transaksi' => $transaksi,
 
         ];
-        return view('admin/pages/dashboard', $results);
+        return view('admin.pages.dashboard', $results);
     }
 
     public function profile(Request $request)
@@ -39,7 +39,7 @@ class Dashboard extends Controller
             'uri' =>  $request->segments('1')
         ];
 
-        return view('admin\pages\profile', $results);
+        return view('admin.pages.profile', $results);
     }
 
 
