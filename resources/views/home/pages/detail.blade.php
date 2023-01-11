@@ -32,9 +32,13 @@
                                 <div class="pt-4">
                                     <label class="form-label fw-bold" for=""><i class="bi bi-shield-check"></i>
                                         Status</label>
-                                    <p>{!! $alat_berat->status == 'Tersedia'
-                                        ? '<span class="badge bg-success">Tersedia</span>'
-                                        : '<span class="badge bg-danger">Tidak Tersedia</span>' !!}</p>
+                                    <p>
+                                        {!! $alat_berat->status == 'Tersedia'
+                                            ? '<span class="badge bg-success">Tersedia</span>'
+                                            : '<span class="badge bg-danger">Tidak Tersedia</span>' !!}</p>
+                                    @if ($alat_berat->status == 'Tidak Tersedia')
+                                        <small>Tersedia Kembali Tanggal <b>{{ $alat_berat->tgl_tersedia }}</b></small>
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-6">
@@ -112,16 +116,14 @@
                                         <div class="col-lg-8 col-sm-8">
                                             <div class="handle-counter" id="handleCounter" onclick="sum();">
                                                 <button class="counter-minus btn btn-primary">-</button>
-                                                <input type="text" name="durasi_sewa" id="durasi_kontrak"
-                                                    class="form-control form-control-custom">
+                                                <input type="number" name="durasi_sewa" id="durasi_kontrak" class="form-control form-control-custom" min="1">
                                                 <button class="counter-plus btn btn-primary">+</button>
                                                 <span style="font-weight: bold; padding-left: 10px;">Jam/Hari</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row pt-2 pb-2">
-                                        <label class="col-lg-4 col-sm-4 form-label fw-bold"> <i class="bi bi-"></i> Durasi
-                                            Sewa</label>
+                                        <label class="col-lg-4 col-sm-4 form-label fw-bold"> <i class="bi bi-cash"></i> Total Biaya</label>
                                         <div class="col-lg-8 col-sm-8">
                                             <span style="font-weight: bold; font-size: x-large;">Rp <span
                                                     id="total">0</span></span>

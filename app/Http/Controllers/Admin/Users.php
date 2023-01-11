@@ -18,7 +18,7 @@ class Users extends Controller
             'uri' => 'admin',
             'user' => $user,
         ];
-        return view('admin\pages\admin', $results);
+        return view('admin.pages.admin', $results);
     }
 
     public function create(Request $request)

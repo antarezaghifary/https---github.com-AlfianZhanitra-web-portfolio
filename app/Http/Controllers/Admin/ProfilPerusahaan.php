@@ -17,7 +17,7 @@ class ProfilPerusahaan extends Controller
             'uri' =>  $request->segments('1'),
             'profil' => $profil_perusahaan,
         ];
-        return view('admin\pages\profil-perusahaan', $results);
+        return view('admin.pages.profil-perusahaan', $results);
     }
 
 
