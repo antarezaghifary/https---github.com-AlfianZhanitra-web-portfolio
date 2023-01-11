@@ -61,7 +61,7 @@
                                                 </div>
                                             </div>
                                             <div class="pt-4">
-                                                @if ($invoice->bukti_pembayaran != '')
+                                                @if ($invoice->status != '0')
                                                     <p class="text-center fw-bold text-success">[LUNAS]</p>
                                                 @else
                                                     <p class="text-center fw-bold text-danger">[BELUM LUNAS]</p>
@@ -120,7 +120,10 @@
                                                             @csrf
                                                             <input type="hidden" name="status" value="1">
                                                             <input type="hidden" name="status_alat" value="Tidak Tersedia">
-                                                            <input type="hidden" name="id_alatberat" value="{{ $invoice->id_alat_berat }}">
+                                                            <input type="hidden" name="tgl_tersedia"
+                                                                value="{{ $invoice->tgl_pemakaian }}">
+                                                            <input type="hidden" name="id_alatberat"
+                                                                value="{{ $invoice->id_alat_berat }}">
                                                             <button type="submit" class="btn btn-primary"><i
                                                                     class="bi bi-check2-circle"></i> Konfirmasi
                                                                 Pesanan</button>
@@ -132,7 +135,10 @@
                                                             @csrf
                                                             <input type="hidden" name="status" value="0">
                                                             <input type="hidden" name="status_alat" value="Tersedia">
-                                                            <input type="hidden" name="id_alatberat" value="{{ $invoice->id_alat_berat }}">
+                                                            <input type="hidden" name="tgl_tersedia"
+                                                                value="">
+                                                            <input type="hidden" name="id_alatberat"
+                                                                value="{{ $invoice->id_alat_berat }}">
                                                             <button type="submit" class="btn btn-danger"><i
                                                                     class="bi bi-x-circle"></i> Batalkan
                                                                 Konfirmasi</button>

@@ -32,9 +32,13 @@
                                 <div class="pt-4">
                                     <label class="form-label fw-bold" for=""><i class="bi bi-shield-check"></i>
                                         Status</label>
-                                    <p>{!! $alat_berat->status == 'Tersedia'
-                                        ? '<span class="badge bg-success">Tersedia</span>'
-                                        : '<span class="badge bg-danger">Tidak Tersedia</span>' !!}</p>
+                                    <p>
+                                        {!! $alat_berat->status == 'Tersedia'
+                                            ? '<span class="badge bg-success">Tersedia</span>'
+                                            : '<span class="badge bg-danger">Tidak Tersedia</span>' !!}</p>
+                                    @if ($alat_berat->status == 'Tidak Tersedia')
+                                        <small>Tersedia Kembali Tanggal <b>{{ $alat_berat->tgl_tersedia }}</b></small>
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-6">

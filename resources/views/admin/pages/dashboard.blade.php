@@ -123,9 +123,9 @@
                                                         <td>{{ $item->type }}</td>
                                                         <td>{{ $item->merk }}</td>
                                                         <td>Rp.{{ number_format($item->harga * $item->durasi_sewa) }}</td>
-                                                        <td>{!! $item->bukti_pembayaran == ''
+                                                        <td>{!! $item->status == '0'
                                                             ? '<span class="badge bg-danger">Belum Lunas</span>'
-                                                            : ($item->status != ''
+                                                            : ($item->status != '0'
                                                                 ? '<span class="badge bg-success"> Lunas </span>'
                                                                 : '') !!}</td>
                                                         <td>{!! $item->status == '0'

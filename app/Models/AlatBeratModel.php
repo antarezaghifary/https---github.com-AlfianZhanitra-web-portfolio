@@ -14,6 +14,7 @@ class AlatBeratModel extends Model
         'type',
         'merk',
         'status',
+        'tgl_tersedia',
         'operator',
         'bbm',
         'harga',
