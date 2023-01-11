@@ -28,9 +28,9 @@
                                         <td>{{ $item->merk }}</td>
                                         <td>Rp.{{ number_format($item->harga * $item->durasi_sewa) }}</td>
                                         <td>{!! $item->bukti_pembayaran == ''
-                                            ? '<span class="badge bg-danger">Belum Lunas</span>'
+                                            ? '<span class="badge bg-danger">Belum Melakukan Pembayaran</span>'
                                             : ($item->status != ''
-                                                ? '<span class="badge bg-success"> Lunas </span>'
+                                                ? '<span class="badge bg-secondary"> Pembayaran di Proses</span>'
                                                 : '') !!}</td>
                                         <td>{!! $item->status == '0'
                                             ? '<span class="badge bg-danger"> Menunggu Konfirmasi</span>'
