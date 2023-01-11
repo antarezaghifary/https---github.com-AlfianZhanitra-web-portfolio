@@ -69,7 +69,7 @@ Route::delete('/delete-data-rekening/{post}', 'App\Http\Controllers\Admin\Rekeni
 Route::get('/data-transaksi', 'App\Http\Controllers\Admin\Transaksi@index')->name('admin')->middleware('cek_login:admin,owner');
 Route::get('/detail-transaksi/{post}', 'App\Http\Controllers\Admin\Transaksi@invoice')->name('admin')->middleware('cek_login:admin,owner');
 Route::put('/confirm-transaksi/{post}', 'App\Http\Controllers\Admin\Transaksi@update')->name('update')->middleware('cek_login:admin,owner');
-Route::delete('/delete-transaksi/{post}', 'App\Http\Controllers\Admin\Transaksi@delete')->name('delete')->middleware('cek_login:admin,owner');
+Route::get('/delete-transaksi/{post}', 'App\Http\Controllers\Admin\Transaksi@delete')->name('delete')->middleware('cek_login:admin,owner');
 Route::get('/download-invoice-/{post}', 'App\Http\Controllers\Admin\Transaksi@download_invoice')->middleware('cek_login:owner,admin');
 
 Route::get('/data-laporan', 'App\Http\Controllers\Admin\Transaksi@laporan')->name('admin')->middleware('cek_login:admin,owner');
