@@ -1,10 +1,12 @@
 /**
  * handle counter
  */
-; (function () {
+;
+(function () {
     'use strict';
     $.fn.handleCounter = function (options) {
         var $input,
+            $btnAdd,
             $btnMinus,
             $btnPlugs,
             minimum,
@@ -17,13 +19,14 @@
         $btnMinus = $handleCounter.find('.counter-minus')
         $input = $handleCounter.find('input')
         $btnPlugs = $handleCounter.find('.counter-plus')
+        $btnAdd = $handleCounter.find('.counter-add')
         var defaultOpts = {
             writable: true,
             minimum: 1,
             maximize: null,
-            onChange: function () { },
-            onMinimum: function () { },
-            onMaximize: function () { }
+            onChange: function () {},
+            onMinimum: function () {},
+            onMaximize: function () {}
         }
         var settings = $.extend({}, defaultOpts, options)
         minimum = settings.minimum
@@ -49,7 +52,7 @@
         changeVal(inputVal)
         $input.val(inputVal)
         $btnMinus.click(function (e) {
-        e.preventDefault()
+            e.preventDefault()
             var num = parseInt($input.val())
             if (num > minimum) {
                 $input.val(num - 1)
@@ -57,12 +60,15 @@
             }
         })
         $btnPlugs.click(function (e) {
-        e.preventDefault()
+            e.preventDefault()
             var num = parseInt($input.val())
             if (maximize == null || num < maximize) {
                 $input.val(num + 1)
                 changeVal(num + 1)
             }
+        })
+        $btnAdd.click(function (e) {
+            e.preventDefault()
         })
         var keyUpTime
         $input.keyup(function (e) {

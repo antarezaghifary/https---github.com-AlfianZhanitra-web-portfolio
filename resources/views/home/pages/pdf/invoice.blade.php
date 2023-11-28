@@ -85,13 +85,18 @@
                         <td class="text-center">:</td>
                         <td>{{ $invoice->tgl_pemakaian }}</td>
                     </tr>
+                    <tr>
+                        <td>Jam. Selesai</td>
+                        <td class="text-center">:</td>
+                        <td>{{ $invoice->jam_selesai }}</td>
+                    </tr>
                 </table>
             </div>
             <div class="pt-4">
                 @if ($invoice->status != '0')
-                    <p class="text-center fw-bold text-success">[LUNAS]</p>
+                <p class="text-center fw-bold text-success">[LUNAS]</p>
                 @else
-                    <p class="text-center fw-bold text-danger">[BELUM LUNAS]</p>
+                <p class="text-center fw-bold text-danger">[BELUM LUNAS]</p>
                 @endif
                 <h4 class="card-subtitle mb-2 text-muted">Detail Pesanan</h4>
                 <div class="table-responsive">

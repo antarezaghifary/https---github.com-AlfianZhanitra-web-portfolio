@@ -13,6 +13,7 @@ class TransaksiModel extends Model
         'id_pelanggan',
         'id_alat_berat',
         'tgl_pemakaian',
+        'jam_selesai',
         'lokasi_proyek',
         'status',
         'bukti_pembayaran',

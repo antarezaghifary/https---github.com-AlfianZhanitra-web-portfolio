@@ -39,7 +39,7 @@ class Homepage extends Controller
         return view('home.pages.detail', $results);
     }
 
-    public function tentang()
+    public function faqs()
     {
 
         $profile = DB::table('settings')->get()->first();
@@ -49,6 +49,14 @@ class Homepage extends Controller
         ];
 
         return view('home.pages.about', $results);
+    }
+
+    public function cara()
+    {
+        $results = [
+            'pagetitle' => 'Cara Pemesanan',
+        ];
+        return view('home.pages.faqs', $results);
     }
 
     public function alat_berat()
@@ -78,5 +86,4 @@ class Homepage extends Controller
 
         return view('home.pages.profile', $results);
     }
-
 }

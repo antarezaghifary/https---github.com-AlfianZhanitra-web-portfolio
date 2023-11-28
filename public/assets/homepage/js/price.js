@@ -15,6 +15,22 @@ function sum() {
         durasi_kontrak = null;
     }
 
+    var tgl_pemakaian,
+        element = document.getElementById('tgl_pemakaian');
+    if (element != null) {
+        tgl_pemakaian = element.value;
+    } else {
+        tgl_pemakaian = null;
+    }
+
+    var jam,
+        element = document.getElementById('jam');
+    if (element != null) {
+        jam = element.value;
+    } else {
+        jam = null;
+    }
+
     var total = harga * durasi_kontrak;
 
     var bilangan = total;
@@ -25,4 +41,17 @@ function sum() {
 
 
     document.getElementById("total").innerHTML = ribuan;
+
+    if (durasi_kontrak != null) {
+        var Hjam = durasi_kontrak % 24;
+        var hour = new Date($('input[name="tgl_pemakaian"]').val()).getHours();
+        var menit = new Date($('input[name="tgl_pemakaian"]').val()).getMinutes();
+        var tambah = Hjam + hour;
+        var waktu = tambah + ":" + menit;
+        $('input[name="textdurasi"]').val(waktu);
+
+
+    }
+    document.getElementById("totaldurasi").innerHTML = waktu;
+
 }

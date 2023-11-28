@@ -13,8 +13,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', 'App\Http\Controllers\Home\Homepage@index')->name('homepage');
 Route::get('/tentang', 'App\Http\Controllers\Home\Homepage@tentang')->name('tentang');
+Route::get('/cara-pemesanan', 'App\Http\Controllers\Home\Homepage@cara')->name('cara_pemesanan');
 Route::get('/alat-berat', 'App\Http\Controllers\Home\Homepage@alat_berat')->name('alat_berat');
 Route::get('/profil-pengguna', 'App\Http\Controllers\Home\Homepage@profile')->name('profile');
 Route::get('/detail-alat-berat/{post}', 'App\Http\Controllers\Home\Homepage@detail')->name('detail');

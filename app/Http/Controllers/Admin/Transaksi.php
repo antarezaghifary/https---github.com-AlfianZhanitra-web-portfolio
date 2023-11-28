@@ -48,22 +48,37 @@ class Transaksi extends Controller
         $rules =  [
             'status' => 'required',
         ];
-
         if ($request->validate($rules)) {
             $results = [
                 'status' => $request['status']
             ];
-            $date = $request['tgl_tersedia'];
-            $tgl_tersedia = date('Y-m-d', strtotime($date. ' + 1 days'));
-            $status = [
-                'status' =>  $request['status_alat'],
-                'tgl_tersedia' => $tgl_tersedia
-            ];
-
-            TransaksiModel::where('id', $id)->update($results);
-            AlatBeratModel::where('id', $id_alat_berat)->update($status);
-            notify()->success('Status diperbarui', 'Berhasil');
-            return back();
+            if ($request['tgl_tersedia'] && $request['jam_selesai'] != null) {
+                $date = $request['tgl_tersedia'];
+                $selesai = $request['jam_selesai'];
+                $tgl_tersedia = date('Y-m-d', strtotime($date));
+                $jam_tersedia = date('H:i', strtotime($selesai . "+ 2 hours"));
+                $status = [
+                    'status' =>  $request['status_alat'],
+                    'tgl_tersedia' => $tgl_tersedia,
+                    'jam_tersedia' => $jam_tersedia
+                ];
+                TransaksiModel::where('id', $id)->update($results);
+                AlatBeratModel::where('id', $id_alat_berat)->update($status);
+                notify()->success('Status diperbarui', 'Berhasil');
+                return back();
+            } else if ($request['tgl_tersedia'] && $request['jam_selesai'] == null) {
+                $date = $request['tgl_tersedia'];
+                $tgl_tersedia = date('Y-m-d', strtotime($date));
+                $status = [
+                    'status' =>  $request['status_alat'],
+                    'tgl_tersedia' => $tgl_tersedia,
+                    'jam_tersedia' => null
+                ];
+                TransaksiModel::where('id', $id)->update($results);
+                AlatBeratModel::where('id', $id_alat_berat)->update($status);
+                notify()->success('Status diperbarui', 'Berhasil');
+                return back();
+            }
         } else {
             notify()->warning('Harap Periksa Kembali', 'Gagal');
             return back();
@@ -85,7 +100,7 @@ class Transaksi extends Controller
     public function download_invoice($id)
     {
         $invoice = DB::table('transaksi as a')
-            ->select('a.*', 'b.type', 'b.merk', 'b.harga', 'b.operator', 'b.bbm', 'b.durasi_sewa as per', 'c.name as nama_pelanggan', 'c.phone', 'c.email')
+            ->select('a.*', 'b.type', 'b.merk', 'b.harga', 'b.operator', 'b.bbm', 'b.durasi_sewa as per', 'jam_selesai', 'c.name as nama_pelanggan', 'c.phone', 'c.email')
             ->join('alat_berat as b', 'a.id_alat_berat', '=', 'b.id')
             ->join('users as c', 'a.id_pelanggan', '=', 'c.id')
             ->where('a.id', $id)
@@ -225,9 +240,8 @@ class Transaksi extends Controller
             'periode' => $periode,
             'type' => $type,
         ];
-
         $pdf = Pdf::loadView('admin.pages.pdf.laporan', $results)->setPaper('a4', 'landscape');
         $name = now()->timestamp . "Laporan-" . $periode . "type-" . $type . ".pdf";
-        return $pdf->download($name);
+        return $pdf->download('Laporan-Transaksi' . $name);
     }
 }

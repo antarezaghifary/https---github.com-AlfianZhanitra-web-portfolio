@@ -46,8 +46,12 @@
 <body>
     <div class="card">
         <div class="card-body">
-            <h3>{{ profile()->nama_perusahaan }}</h3>
-            <p>Periode : {{ $periode }}</p> <p>Type : {{ $type }}</p>
+            <center>
+                <h1>Laporan Data Transaksi<br>{{ profile()->nama_perusahaan }}</h1>
+            </center>
+            <p><b>Periode :</b> {{ $periode }}</p>
+            <p><b>Type :</b> {{ $type }}</p>
+            <hr>
             <table class="table" style="width: 100%">
                 <thead>
                     <tr>
@@ -64,17 +68,17 @@
                 <tbody>
                     @php $total = '0' @endphp
                     @foreach ($transaksi as $item)
-                        @php $total += $item->harga * $item->durasi_sewa @endphp
-                        <tr>
-                            <td class="td">{{ $item->nama_pelanggan }}</td>
-                            <td class="td">{{ $item->type }}</td>
-                            <td class="td">{{ $item->merk }}</td>
-                            <td class="td">{{ number_format($item->harga) . '/' . $item->per }}</td>
-                            <td class="td">{{ $item->durasi_sewa }}</td>
-                            <td class="td">{!! $item->operator == 'Tersedia' ? '✔' : '✕' !!}</td>
-                            <td class="td">{!! $item->bbm == 'Tersedia' ? '✔' : '✕' !!}</td>
-                            <td class="td">{{ number_format($item->harga * $item->durasi_sewa) }}</td>
-                        </tr>
+                    @php $total += $item->harga * $item->durasi_sewa @endphp
+                    <tr>
+                        <td class="td">{{ $item->nama_pelanggan }}</td>
+                        <td class="td">{{ $item->type }}</td>
+                        <td class="td">{{ $item->merk }}</td>
+                        <td class="td">{{ number_format($item->harga) . '/' . $item->per }}</td>
+                        <td class="td">{{ $item->durasi_sewa }}</td>
+                        <td class="td">{!! $item->operator == 'Tersedia' ? '✔' : '✕' !!}</td>
+                        <td class="td">{!! $item->bbm == 'Tersedia' ? '✔' : '✕' !!}</td>
+                        <td class="td">{{ number_format($item->harga * $item->durasi_sewa) }}</td>
+                    </tr>
                     @endforeach
                 </tbody>
                 <tfoot>

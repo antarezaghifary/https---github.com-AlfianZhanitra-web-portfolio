@@ -20,4 +20,12 @@
  <!-- Template Stylesheet -->
  <link href="{{ url('assets/homepage/css/style.css') }}" rel="stylesheet">
  @notifyCss
- <style type="text/css"> .notify{ z-index: 1000000; margin-top: 2%; } </style>
+ <style type="text/css">
+     .notify {
+         z-index: 1000000;
+         margin-top: 2%;
+     }
+ </style>
+
+ <!--Date Time Picker CSS-->
+ <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">

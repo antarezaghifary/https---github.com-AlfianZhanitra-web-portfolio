@@ -57,6 +57,7 @@ class Transaksi extends Controller
             'id_pelanggan' => login()->id,
             'id_alat_berat' => $request['id_alat_berat'],
             'tgl_pemakaian' => $request['tgl_pemakaian'],
+            'jam_selesai'   => $request['textdurasi'],
             'lokasi_proyek' => $request['lokasi_proyek'],
             'durasi_sewa'   => $request['durasi_sewa'],
         ];
